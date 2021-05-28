@@ -452,7 +452,60 @@ p
 
 /*** Contact Page ***/
 
-.
+.contact-page__content-wrapp
+    display: flex  
+    align-items: center
+    height: 75vh
+    max-height: 100%
+.contact-page__content
+    display: grid
+    grid-gap: 20px
+    grid-template-columns: 350px 1fr    
 
+.contact-data__list-wrapper
+    h4
+        color: #00314c    
+        opacity: .5
+
+.contact-data__list
+    padding: 0
+    margin: 0
+    margin-bottom: 30px
+    list-style-type: none 
+    li
+        a
+            color: #00314c
+            font-size: 30px
+            &:hover
+                text-decoration: none
+
+.social-contact-data__list
+    padding: 0
+    list-style-type: none
+    margin: 0
+    display: flex
+    li
+        margin-right: 25px
+        a
+            img
+                width: 30px
+
+.contact-form__wrapp
+    position: relative
+
+.contact-form_row
+    display: flex
+    margin-bottom: 20px
+    h1
+        font-size: 35px
+    .input-wrapp
+        margin-right: 20px
+        &:last-child
+            margin-right: 0
+        input
+            width: 440px
+            max-width: 100%
+        textarea
+            width: 100%
 
 /*** Contact Page END***/
