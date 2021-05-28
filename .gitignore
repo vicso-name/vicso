@@ -1,0 +1,8 @@
+/node_modules/
+/dist/
+/languages/
+/screenshot.png/
+/composer.json/
+/images/
+/.git/
+
