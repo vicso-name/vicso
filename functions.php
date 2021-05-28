@@ -116,11 +116,38 @@ function vicso_scripts() {
 	wp_enqueue_script( 'vicso-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 	wp_enqueue_script('vicso-scripts', esc_url( get_template_directory_uri() ).'/js/app.min.js', '', '', true);
 
+	
+	wp_enqueue_script('extra', esc_url( get_template_directory_uri() ).'/js/extra.js', '', '', true);
+    $translation_array = array( 'url' => admin_url('admin-ajax.php'), 'nonce' => wp_create_nonce('ajax-nonce') );
+    wp_localize_script('extra', 'object_url', $translation_array);
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'vicso_scripts' );
+
+add_action( 'wp_ajax_nopriv_vicso_send_message', 'vicso_send_message' );
+add_action( 'wp_ajax_vicso_send_message', 'vicso_send_message' );
+
+function vicso_send_message(){
+    global $wpdb;
+
+    $admin_email = get_option( 'admin_email' );
+    $username = $_POST['username'];
+	$userphone = $_POST['userphone'];
+	$usermail =  $_POST['usermail'];
+	$usermessage = $_POST['usermessage'];
+
+        $headers[] = 'Content-type: text/html; charset=utf-8';
+        $headers[] = 'From: '.get_bloginfo("name").' <'.get_bloginfo("admin_email").'>' . "\r\n";
+        $message = file_get_contents('tpl-mail.php', true);
+
+        wp_mail( $admin_email, 'Contact form', $message, $headers );
+        echo json_encode(array('contact_form'=>true));
+        
+    die;
+}
 
 
 require get_template_directory() . '/inc/custom-header.php';

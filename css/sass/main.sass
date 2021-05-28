@@ -462,10 +462,13 @@ p
     grid-gap: 20px
     grid-template-columns: 350px 1fr    
 
-.contact-data__list-wrapper
+.contact-data__wrapp
+    display: flex
+    flex-direction: column
+    justify-content: center
     h4
         color: #00314c    
-        opacity: .5
+        opacity: .5   
 
 .contact-data__list
     padding: 0
@@ -492,20 +495,54 @@ p
 
 .contact-form__wrapp
     position: relative
+    h1
+        font-size: 40px
+        margin-bottom: 65px
 
 .contact-form_row
     display: flex
-    margin-bottom: 20px
-    h1
-        font-size: 35px
+    margin-bottom: 50px
     .input-wrapp
-        margin-right: 20px
+        margin-right: 40px
         &:last-child
             margin-right: 0
         input
             width: 440px
             max-width: 100%
-        textarea
-            width: 100%
+            border: none
+            border-bottom: 1px solid #00314c
+            padding-bottom: 5px
+            &:focus
+                outline: none
+.form-message
+    width: 100%
+    border: none
+    border-bottom: 1px solid #00314c
+    resize: none
+    &:focus
+        outline: none
+
+.contact-form-btn
+    color: #fff
+    margin-top: 20px
+    text-decoration: none
+    font-size: 14px
+    font-weight: 400
+    letter-spacing: 2px
+    width: 100%
+    max-width: 180px
+    height: 35px
+    background-color: #364559
+    display: flex
+    justify-content: center
+    align-items: center
+    border: 1px solid #364559
+    transition: all .3s ease
+    &:hover
+        color: #364559
+        background-color: #ffffff
+        text-decoration: none
+
+
 
 /*** Contact Page END***/
