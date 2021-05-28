@@ -38,8 +38,21 @@
 
 </div>
 
+<div id="success-sent" class="success-sent">
+        <div id="close-form-success" ><i class="far fa-times-circle"></i></div>
+        <div class="success-sent__guts">
+            <div class="success-sent__guts-content">
+                <h2>Thanks for messaging!</h2>
+                <p>Your message was successfully sent.</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="modal-overlay">
 
 <?php wp_footer(); ?>
 <script src="https://kit.fontawesome.com/6997fd8dc6.js" crossorigin="anonymous"></script>
+    
+   
+
 </body>
 </html>
