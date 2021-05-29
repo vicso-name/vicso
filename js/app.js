@@ -81,9 +81,7 @@ function updateCounter(arrLength){
 }
 
 
-
-
-if(displayFavor !== null){
+if(displayFavor.length > 0){
 
     let favoriteList = document.getElementById('favorite-list');
 
@@ -106,8 +104,6 @@ if(displayFavor !== null){
 }else{
     let nothingFavorite = "";
     let noFavoriteAlert = document.getElementById('no-favorite');
-
-    countValue.classList.remove('active');
 
     if( noFavoriteAlert !== null){
         nothingFavorite +=
