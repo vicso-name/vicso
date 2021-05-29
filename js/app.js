@@ -6,10 +6,12 @@ const addToFavorite = document.getElementById('add-to-favorite');
 if(addToFavorite !== null){
 
     addToFavorite.addEventListener('click', function(){
-        
-        const favoriteArr = JSON.parse(localStorage.getItem('favoriteArr')) || [];
+
+        //Array for duplicate checking
+        const duplicateCheck = JSON.parse(localStorage.getItem('duplicateCheck')) || []; //Array for duplicate checking
+        const favoriteArr = JSON.parse(localStorage.getItem('favoriteArr')) || []; 
         const getDataFromFavoriteArr = JSON.parse(localStorage.getItem("favoriteArr"));
-        const modelId = this.getAttribute('data-post-id');
+        const postId = this.getAttribute('data-post-id');
 
         let postObj = {
 
@@ -19,13 +21,33 @@ if(addToFavorite !== null){
             'postException': this.getAttribute('data-post-exception')
         }
 
-        favoriteArr.push(postObj);
-        localStorage.setItem('favoriteArr', JSON.stringify(favoriteArr));
+        if(duplicateCheck !== null && duplicateCheck.includes(postId)){
+            let duplicateAlert = document.querySelector('.duplicate-alert');
+            if(duplicateAlert !== null){
+                duplicateAlert.classList.add('active');
+                setTimeout(function(){ duplicateAlert.classList.remove('active'); }, 1500);
+            }
+        }else{
 
-
+            duplicateCheck.push(postId);
+            localStorage.setItem("duplicateCheck", JSON.stringify(duplicateCheck));
+    
+            favoriteArr.push(postObj);
+            localStorage.setItem('favoriteArr', JSON.stringify(favoriteArr));
+    
+            let countValue = document.getElementById('count-value');
+            let singleHeart = document.getElementById('single-heart');
+            let favoriteCounterContent = "";
+    
+            favoriteCounterContent += favoriteArr.length;
+            countValue.classList.add('active');
+            singleHeart.classList.add('active');
+            countValue.innerHTML = favoriteCounterContent;
+        }
         
     });
 }
+
 
 /** Display on Favorite Page **/
 
@@ -41,15 +63,24 @@ let postException
 //Function for updating Favorite Count
 function updateCounter(arrLength){
     let countValue = document.getElementById('count-value');
+    let singleHeart = document.getElementById('single-heart');
     let favoriteCounterContent = "";
     favoriteCounterContent += arrLength;
     if(arrLength !== 0){
         countValue.classList.add('active');
+        if(singleHeart !== null){
+            singleHeart.classList.add('active');
+        }
     }else{
         countValue.classList.remove('active');
+        if(singleHeart !== null){
+            singleHeart.classList.remove('active');
+        } 
     }
     countValue.innerHTML = favoriteCounterContent;
 }
+
+
 
 
 if(displayFavor !== null){
@@ -69,8 +100,9 @@ if(displayFavor !== null){
             favoriteList.innerHTML = favoriteHtml;
         }     
     }
+    
     updateCounter(displayFavor.length);
-   
+
 }else{
     let nothingFavorite = "";
     let noFavoriteAlert = document.getElementById('no-favorite');
