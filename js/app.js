@@ -129,10 +129,14 @@ if(removeItem !== null){
 
             this.closest('.article-item').style.display='none';
             let dataItem =  this.getAttribute('data-item');
+            let removeFromDublicat = JSON.parse(localStorage.getItem('duplicateCheck'));
             let removeFromArr = JSON.parse(localStorage.getItem('favoriteArr'));
+
             removeFromArr.splice(dataItem, 1);
+            removeFromDublicat.splice(dataItem, 1);
             localStorage.setItem("favoriteArr",JSON.stringify(removeFromArr));
-            
+            localStorage.setItem("duplicateCheck",JSON.stringify(removeFromDublicat));
+
             updateCounter(removeFromArr.length)
             
         });
