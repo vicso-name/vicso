@@ -66,8 +66,8 @@
 					</button>
 				</form>
 
-				<div class="favorite-post-count">
-					<div class="count-value">10</div>
+				<div id="favorite-post-count" class="favorite-post-count">
+					<div id="count-value" class="count-value"></div>
 					<a href="/vicso/favorite-posts/"><i class="fas fa-heart"></i></a>
 				</div>
 

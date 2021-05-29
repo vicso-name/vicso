@@ -26,52 +26,11 @@
 <!-- Fav Content -->
 
 <div class="container-guts favorite-page">
-
-        <div class="favorite-content-grid">
-
-            <div class="article-item">
-                <div class="article-item__content">
-                    <h2><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula a sapien quis semper. Curabitur et dapibus nisi. ...</p>
-                    <a class="read-more" href="#">Read more</a>
-                </div>
-                <button class="remove-favorite" type="button"><i class="far fa-trash-alt"></i></button>
-            </div>
-
-            <div class="article-item">
-                <div class="article-item__content">
-                    <h2><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula a sapien quis semper. Curabitur et dapibus nisi. ...</p>
-                    <a class="read-more" href="#">Read more</a>
-                </div>
-                <button class="remove-favorite" type="button"><i class="far fa-trash-alt"></i></button>
-            </div>
-
-            <div class="article-item">
-                <div class="article-item__content">
-                    <h2><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula a sapien quis semper. Curabitur et dapibus nisi. ...</p>
-                    <a class="read-more" href="#">Read more</a>
-                </div>
-                <button class="remove-favorite" type="button"><i class="far fa-trash-alt"></i></button>
-            </div>
-
-            <div class="article-item">
-                <div class="article-item__content">
-                    <h2><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula a sapien quis semper. Curabitur et dapibus nisi. ...</p>
-                    <a class="read-more" href="#">Read more</a>
-                </div>
-                <button class="remove-favorite" type="button"><i class="far fa-trash-alt"></i></button>
-            </div>
-
-        </div>
+    <div id="no-favorite"></div>
+    <div id="favorite-list" class="favorite-content-grid"></div>
 </div>
     
-
-
 </div>
-
 
 <?php
 get_footer();

@@ -172,7 +172,6 @@ function the_excerpt_custom( $charlength ){
 		} else {
 			echo $subex;
 		}
-		echo '...';
 	} else {
 		echo $excerpt;
 	}
