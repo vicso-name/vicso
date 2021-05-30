@@ -23,13 +23,7 @@ function custom_comment( $comment, $args, $depth ){
 
             <?php
                 $commentAuthorID = $GLOBALS['comment']->user_id;
-                $user = wp_get_current_user();
-
-                if ( $user ) {
-                   // echo esc_url( get_avatar_url( $user->ID ) );
-                }else {
-                    $user_avatar = 'http://localhost:3000/vicso/wp-content/uploads/2021/05/user.png';
-                }
+                $user_avatar = 'http://localhost:3000/vicso/wp-content/uploads/2021/05/user.png';
             ?>
 
             <img src="<?php echo  $user_avatar; ?>" alt="user_avatar">
