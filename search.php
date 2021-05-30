@@ -16,17 +16,21 @@ get_header();
 	<div class="article-grid">
 
 		<?php if ( have_posts() ) : ?>
-
 			<?php
-			while ( have_posts() ) :
-				the_post();
-				get_template_part( 'template-parts/content', 'search' );
-			endwhile;
-		else :
-			get_template_part( 'template-parts/content', 'none' );
-		endif;
+				while ( have_posts() ) :
+					the_post();
+					get_template_part( 'template-parts/content', 'search' );
+				endwhile;
+			endif;
 		?>
 
+	</div>
+	<div class="no-posts">
+		<?php 
+			if ( !have_posts() ) :
+				get_template_part( 'template-parts/content', 'none' );
+			endif;
+		?>
 	</div>
 </div>
 
