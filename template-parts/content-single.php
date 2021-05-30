@@ -3,7 +3,7 @@
     <div class="post-header__meta">
 
         <div id="add-to-favorite" data-post-id="<?php the_ID() ?>" data-post-title="<?php the_title(); ?>" data-post-url="<?php the_permalink() ?>" data-post-exception="<?php the_excerpt_custom(140); ?>" title="Add to favorite"  class="add-to-favorite">
-            <i id="single-heart" class="far fa-heart"></i>
+            <i data-post-id="<?php the_ID() ?>" id="single-heart" class="single-heart far fa-heart"></i>
             <div class="duplicate-alert">
                 <p>You have already added it</p>
             </div>

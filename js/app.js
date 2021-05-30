@@ -36,12 +36,10 @@ if(addToFavorite !== null){
             localStorage.setItem('favoriteArr', JSON.stringify(favoriteArr));
     
             let countValue = document.getElementById('count-value');
-            let singleHeart = document.getElementById('single-heart');
             let favoriteCounterContent = "";
     
             favoriteCounterContent += favoriteArr.length;
             countValue.classList.add('active');
-            singleHeart.classList.add('active');
             countValue.innerHTML = favoriteCounterContent;
         }
         
@@ -63,21 +61,18 @@ let postException
 //Function for updating Favorite Count
 function updateCounter(arrLength){
     let countValue = document.getElementById('count-value');
-    let singleHeart = document.getElementById('single-heart');
     let favoriteCounterContent = "";
     favoriteCounterContent += arrLength;
+    countValue.innerHTML = favoriteCounterContent;
+    let singleHeart = document.querySelector('.single-heart');
     if(arrLength !== 0){
-        countValue.classList.add('active');
+       countValue.classList.add('active');
         if(singleHeart !== null){
             singleHeart.classList.add('active');
         }
     }else{
         countValue.classList.remove('active');
-        if(singleHeart !== null){
-            singleHeart.classList.remove('active');
-        } 
-    }
-    countValue.innerHTML = favoriteCounterContent;
+    }  
 }
 
 
@@ -140,7 +135,17 @@ if(removeItem !== null){
     });
 }
 
+//This chunck of code make a note that the post has already been added to the favorites
 
+let singleHeart = document.querySelector('.single-heart');
+if(singleHeart !== null){
+    let atrChecker = singleHeart.getAttribute('data-post-id');
+    if(JSON.parse(localStorage.getItem('duplicateCheck')).includes(atrChecker)){
+        singleHeart.classList.add('active');
+    }else{
+        singleHeart.classList.remove('active');
+    }
+}
 
 
 /*** My favorite END ***/
