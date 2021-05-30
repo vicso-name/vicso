@@ -49,8 +49,6 @@ if(addToFavorite !== null){
 
 /** Display on Favorite Page **/
 
-//const displayFavor = JSON.parse(localStorage.getItem("favoriteArr"));
-
 const displayFavor = JSON.parse(localStorage.getItem("favoriteArr"));
 
 let favoriteHtml="";
@@ -138,7 +136,13 @@ if(removeItem !== null){
 //This chunck of code make a note that the post has already been added to the favorites
 
 let singleHeart = document.querySelector('.single-heart');
+
 if(singleHeart !== null){
+
+    singleHeart.addEventListener('click', function(){
+        singleHeart.classList.add('active');
+    });
+
     let atrChecker = singleHeart.getAttribute('data-post-id');
     if(JSON.parse(localStorage.getItem('duplicateCheck')).includes(atrChecker)){
         singleHeart.classList.add('active');
