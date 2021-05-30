@@ -24,7 +24,10 @@ if ( post_password_required() ) {
         $comments_args = array(
             'label_submit' => __( $comment_send ),
             'class_form' => 'review_form',
-            'fields' => null,
+            'fields' => array(
+					'author' => '<p class="comment-form-author"><input  aria-required="true" placeholder="Name" type="text"></p>',
+					'email'=> '<p class="comment-form-mail"><input  aria-required="true" placeholder="E-mail" type="mail"></p>'
+				),
             'comment_field' => '<p class="comment-form-comment"> <textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" placeholder="Ask your question here"></textarea></p>',
             'submit_field' => '%1$s %2$s'
         );

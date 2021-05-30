@@ -23,15 +23,11 @@ function custom_comment( $comment, $args, $depth ){
 
             <?php
                 $commentAuthorID = $GLOBALS['comment']->user_id;
-                $profile_img	= @json_decode(get_user_meta($commentAuthorID, 'profile_image', true));
-                $profile_img  = !$profile_img ? '' : $profile_img;
+                $user = wp_get_current_user();
 
-                if ( is_user_logged_in() ) {
-                    $user_avatar = $profile_img->thumb;
+                if ( $user ) {
+                   // echo esc_url( get_avatar_url( $user->ID ) );
                 }else {
-                    $user_avatar = 'http://localhost:3000/vicso/wp-content/uploads/2021/05/user.png';
-                }
-                if($user_avatar == ""){
                     $user_avatar = 'http://localhost:3000/vicso/wp-content/uploads/2021/05/user.png';
                 }
             ?>
