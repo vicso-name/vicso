@@ -17,8 +17,7 @@
             <div class="about-page__images">
             
                 <div class="about-page__images-wrapper">
-                    <img src="<?php the_field('family_image'); ?>" alt="about-image">
-                    <img class="image-overlay" src="<?php the_field('developer_image'); ?>" alt="about-image">
+                    <img src="<?php the_field('developer_image'); ?>" alt="about-image">
                 </div>
                 
             </div>
